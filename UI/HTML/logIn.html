@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../stylesheets/signIn.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../Assets/favIcon.png"
+      type="image/x-icon"
+    />
+    <title>LOG IN</title>
+  </head>
+  <body>
+    <div class="back-blur">
+      <div class="signIn-section">
+        <div class="sign-form-container">
+          <div class="signIn-head">
+            <h1>Log in</h1>
+            <div class="view-all-article-container">
+              <a href="./signIn.html" class="button-hover"
+                ><span>Back &nbsp; &#10095;</span></a
+              >
+            </div>
+          </div>
+          <div class="validation-container" id="LogInvalidationContainer"></div>
+          <form id="myLogInForm">
+            <p>
+              <input
+                type="email"
+                id="LogInEmail"
+                class="signIn-input"
+                placeholder="Email"
+              />
+            </p>
+            <p>
+              <input
+                type="password"
+                id="LogInPassword"
+                class="signIn-input"
+                placeholder="Password"
+              />
+            </p>
+            <button
+              href="../HTML/adminPanel.html"
+              type="submit"
+              class="sign-submit-button"
+            >
+              LOG IN
+            </button>
+          </form>
+          <button class="google-button">
+            <img src="../Assets/icons8-google-48 (2).png" alt="" />
+            Continue with Google
+          </button>
+          <p>
+            Don't have an account?
+            <a href="../HTML/signIn.html" class="link">SignIn</a>
+            <a
+              href="../HTML/adminPanel.html"
+              class="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Temporary admin link</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="../Scripts/logIn.js"></script>
+  </body>
+</html>
