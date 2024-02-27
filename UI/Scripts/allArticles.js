@@ -13,7 +13,6 @@ if (myAllArticleArr.length > 0) {
 
       ${myAllArticleArr
         .map((article) => {
-
           return `
 
           <div class="blog-card">
