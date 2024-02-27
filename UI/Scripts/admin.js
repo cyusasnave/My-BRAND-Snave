@@ -93,5 +93,4 @@ const addEducation = () => {
       />
     </p>
   `;
-}
-
+};

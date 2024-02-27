@@ -38,41 +38,41 @@ body {
   border: 1px solid var(--light-gray);
   border-radius: 100svw;
 }
-.flex-center{
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.flex-col-center{
+.flex-col-center {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.flex-btn-center{
+.flex-btn-center {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.flex-around-center{
+.flex-around-center {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.w-full{
+.w-full {
   width: 100%;
 }
-.h-full{
+.h-full {
   height: 100%;
 }
-.h-max{
+.h-max {
   height: max-content;
 }
-.w-auto{
+.w-auto {
   width: 90%;
   margin: auto;
 }
-.text-sm{
+.text-sm {
   font-size: var(--X-small-font-size);
 }
 main {
@@ -514,11 +514,11 @@ main {
   transition: 0.3s;
   cursor: pointer;
 }
-.fa-heart{
+.fa-heart {
   color: transparent;
   -webkit-text-stroke: 0.03svw white;
 }
-.liked{
+.liked {
   color: red;
   -webkit-text-stroke: 0.03svw red;
 }
@@ -636,7 +636,7 @@ main {
 }
 .blog-container {
   width: 100%;
-  height: 100%;
+  height: max-content;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   justify-items: center;
@@ -1200,7 +1200,7 @@ hr {
     width: 70%;
     height: 70%;
   }
-  .design-2{
+  .design-2 {
     bottom: 65%;
   }
   /* ---------------services------------------------ */
