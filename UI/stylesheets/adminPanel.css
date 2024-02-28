@@ -1492,4 +1492,16 @@ hr {
   .delete-comment {
     font-size: var(--XXX-small-font-size);
   }
+  .admin-panel-container{
+    padding: 0;
+  }
+  .article-form{
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .form-container{
+    height: 100vh;
+  }
 }
