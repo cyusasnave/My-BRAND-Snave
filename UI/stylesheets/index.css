@@ -1133,9 +1133,9 @@ hr {
     height: 70%;
   }
   /* ------------------portfolio----------------------- */
-  .tablinks {
+  /* .tablinks {
     width: 150px;
-  }
+  } */
 }
 
 @media (max-width: 430px) {

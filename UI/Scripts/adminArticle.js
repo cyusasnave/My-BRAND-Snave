@@ -41,16 +41,27 @@ document
     const articleArr = JSON.parse(localStorage.getItem("articles")) || [];
 
     const reader = new FileReader();
+    
+    function generateUniqueId() {
+      const timestamp = Date.now().toString(36); 
+      const randomString = Math.random().toString(36).substring(2, 8); 
+      return timestamp + "" + randomString;
+    }
+
 
     reader.onload = () => {
 
       const myBlogImage = reader.result;
 
+      generateUniqueId();
+
       const blogData = {
+        id: generateUniqueId(),
         blogImage: myBlogImage,
         blogTitle: title,
         publishedDate: publishDate,
         blogDescription: content,
+        comments: []
       };
 
       articleArr.unshift(blogData);

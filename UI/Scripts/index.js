@@ -11,20 +11,24 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "grid";
   evt.currentTarget.classList.add("active");
 }
-document.querySelector(".tablinks").click();
-
-const sidemenu = document.getElementById("sidemenu");
+const clickTab = () => {
+  document.querySelector(".tablinks").click();
+};
+clickTab();
 
 function openmenu() {
+  const sidemenu = document.getElementById("sidemenu");
+
   sidemenu.style.right = "0";
 }
 
 function closemenu() {
+  const sidemenu = document.getElementById("sidemenu");
+
   sidemenu.style.right = "-80%";
 }
 
-const myArticleArr = JSON.parse(localStorage.getItem("articles")) || [];
-
+ const myArticleArr = JSON.parse(localStorage.getItem("articles")) || [];
 const blogContainerDiv = document.getElementById("indexBlogView");
 
 if (myArticleArr.length > 0) {
@@ -32,61 +36,50 @@ if (myArticleArr.length > 0) {
     <h1 class="portfolio-title center-text">Blog</h1>
     <h2 class="sub-blog-title center-text">Recent Added Articles</h2>
     <div class="my-articles">
-        <div class="blog-container" id="blogContainer">
-            ${myArticleArr
-              .slice(0, 3)
-              .map((article) => {
-                return `
-                    <div class="blog-card">
+      <div class="blog-container" id="blogContainer">
+        ${myArticleArr
+          .slice(0, 3)
+          .map((article) => {
 
-                      <div class="blog-image">
-                        <img src="${
-                          article.blogImage
-                        }" class="the-blog-image" />
-                      </div>
+            console.log(article.id)
 
-                      <div class="blog-card-content">
-
-                        <h3>${article.blogTitle}</h3>
-
-                        <p> ${minDescription(
-                          (descr = article.blogDescription), 88
-                        )} 
-                        </p>
-
-                        <div class="blog-card-stats">
-
-                          <div class="blog-btn">
-                            <i class="fa-solid fa-heart liked"></i>
-                            201
-                          </div>
-
-                          <div class="blog-btn">
-                            <img src="Assets/comment-solid.svg" alt="" />
-                            301
-                          </div>
-
-                          <div>
-                            <a href="./HTML/singleBlog.html" class="button-hover blog-btn">
-                              <span>See more &nbsp; &#10095;</span>
-                            </a>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                  `;
-              })
-              .join("")}
-          </div>
+            // Create the blog card
+            return `
+            <div class="blog-card">
+              <div class="blog-image">
+                <img src="${article.blogImage}" class="the-blog-image" />
+              </div>
+              <div class="blog-card-content">
+                <h3>${article.blogTitle}</h3>
+                <p>${minDescription(article.blogDescription, 88)}</p>
+                <div class="blog-card-stats">
+                  <div class="blog-btn">
+                    <i class="fa-solid fa-heart liked"></i>
+                    201
+                  </div>
+                  <div class="blog-btn">
+                    <img src="Assets/comment-solid.svg" alt="" />
+                    301
+                  </div>
+                  <div>
+                    <a
+                      href="HTML/singleBlog.html?id=${article.id}"
+                      class="button-hover blog-btn"
+                      ><span>See more &nbsp; &#10095;</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          })
+          .join("")}
       </div>
     </div>
     <div class="view-all-article-container">
-
       <a href="./HTML/allArticles.html" class="button-hover">
         <span>View All Articles &nbsp; &#10095;</span>
       </a>
-      
     </div>
   `;
 } else {
@@ -94,7 +87,8 @@ if (myArticleArr.length > 0) {
     <h1 class="portfolio-title center-text">Blog</h1>
     <h2 class="sub-blog-title center-text">No release yet available!</h2>
   `;
-}
+} 
+
 
 // minimizing the description
 function minDescription(content, char) {
@@ -108,3 +102,5 @@ function minDescription(content, char) {
   }
   return minimizedText;
 }
+
+/* localStorage.removeItem('articles') */

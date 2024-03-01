@@ -12,7 +12,7 @@ if (myAllArticleArr.length > 0) {
     <div class="blog-container">
 
       ${myAllArticleArr
-        .map((article) => {
+        .map((article, index) => {
           return `
 
           <div class="blog-card">
@@ -31,30 +31,28 @@ if (myAllArticleArr.length > 0) {
 
               <div class="blog-card-stats">
 
-                <div class="blog-btn">
-                  <img src="../Assets/heart-solid.svg" />
-                  201
-                </div>
-
-                <div class="blog-btn">
-                  <img src="../Assets/comment-solid.svg" alt="" />
-                  301
-                </div>
-
-                <div>
-                  <a
-                    href="../HTML/singleBlog.html"
-                    class="button-hover blog-btn"
-                    ><span>See more &nbsp; &#10095;</span></a
-                  >
-                </div>
+                 <div class="blog-btn">
+                    <i class="fa-solid fa-heart liked"></i>
+                    201
+                  </div>
+                  <div class="blog-btn">
+                    <img src="Assets/comment-solid.svg" alt="" />
+                    301
+                  </div>
+                  <div>
+                    <a
+                      href="./singleBlog.html?id=${article.id}"
+                      class="button-hover blog-btn"
+                      ><span>See more &nbsp; &#10095;</span></a
+                    >
+                  </div>
 
               </div>
             </div>
           </div>
         `;
-        })
-        .join("")}
+         }).join("")
+        }
     </div>
   </div>
   `;
@@ -66,4 +64,5 @@ if (myAllArticleArr.length > 0) {
   
   `;
 }
-console.log(myAllArticleArr);
+/* console.log(myAllArticleArr); */
+/* localStorage.removeItem("myfrontSingleArticle"); */
