@@ -7,9 +7,7 @@ document
     const image = document.getElementById("imageUpload").files[0];
     const title = document.getElementById("title").value.trim();
     const publishDate = document.getElementById("PublishedDate").value;
-    const content = tinymce
-      .get("articleTextarea")
-      .getContent({ format: "text" });
+    const content = document.getElementById("articleTextarea").value;
     const result = document.getElementById("articleValidationForm");
 
     if (!image || !image.name) {

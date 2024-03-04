@@ -7,6 +7,8 @@ if (id) {
   const myblogs = JSON.parse(localStorage.getItem("articles")) || [];
   const getSingleBlog = myblogs.filter((blog) => blog.id === id);
 
+  console.log(myblogs);
+
   const singleBlogContainer = document.getElementById("singleBlogContainer");
 
   if (getSingleBlog.length > 0) {
