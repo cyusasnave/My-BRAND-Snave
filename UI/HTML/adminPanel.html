@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../stylesheets/adminPanel.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      src="https://kit.fontawesome.com/75d3b9589b.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Place the first <script> tag in your HTML's <head> -->
+    <script
+      src="https://cdn.tiny.cloud/1/oy3f0667dm8vv681slskj4lk254o1jhliecbm63vyl9ks6e9/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../Assets/favIcon.png"
+      type="image/x-icon"
+    />
+    <title>Snave-Admin-Panel</title>
+  </head>
+  <body>
+    <main>
+      <div class="admin-panel-container">
+        <!-- ----------------------------navigation-bar------------------------------------ -->
+
+        <div class="nav-bar" id="sidemenu">
+          <div>
+            <img
+              src="../Assets/xmark-solid.svg"
+              class="dashboard-for-menu"
+              onclick="closemenu()"
+            />
+          </div>
+          <div class="logo-container">
+            <img src="../Assets/logo.png" class="logo" />
+          </div>
+          <hr />
+          <div class="nav-container">
+            <ul>
+              <li
+                class="tablinks"
+                onclick="openTab(event, 'Dashboard')"
+                id="dash"
+              >
+                <a>
+                  <img src="../Assets/admin-assets/Vector (2).png" alt="" />
+                  Dashboard
+                </a>
+              </li>
+              <li class="tablinks" onclick="openTab(event, 'Users')" id="User">
+                <a>
+                  <img src="../Assets/admin-assets/Vector (3).png" alt="" />
+                  Users
+                </a>
+              </li>
+              <li
+                class="tablinks"
+                onclick="openTab(event, 'Messages')"
+                id="messageContainer"
+              >
+                <a>
+                  <img src="../Assets/admin-assets/Vector (4).png" alt="" />
+                  Messages
+                </a>
+              </li>
+              <li
+                class="tablinks"
+                onclick="openTab(event, 'Articles')"
+                id="article"
+              >
+                <a>
+                  <img src="../Assets/admin-assets/Vector (5).png" alt="" />
+                  Articles/Blog
+                </a>
+              </li>
+              <li
+                class="tablinks"
+                onclick="openTab(event, 'Projects')"
+                id="project"
+              >
+                <a>
+                  <img src="../Assets/admin-assets/Vector (6).png" alt="" />
+                  Projects
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="admin-profile-container">
+            <img src="../Assets/admin-assets/me 1.png" alt="" />
+            <div class="admin-profile-content">
+              <p>Snave CYUSA <span>/Admin</span></p>
+              <p><span>cyusasnaveee@gmail.com</span></p>
+              <a
+                onclick="openTab(event, 'folioForm')"
+                class="admin-btn edit-btn"
+                >Edit Profile</a
+              >
+              <a href="#" class="admin-btn delete-btn">Log Out</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- -----------------------main content---------------------------------------- -->
+
+        <div class="admin-all-content">
+          <!-- ---------------------dashboard------------------------------------- -->
+
+          <div class="tabcontent" id="Dashboard">
+            <div class="admin-content-header the-header">
+              <h2>Dashboard</h2>
+              <div>
+                <a
+                  onclick="openTab(event, 'articleForm', 'article')"
+                  class="button-hover new-btn"
+                  ><span>Create new article &nbsp; &#10095; </span></a
+                >
+              </div>
+              <div class="openmenu-container">
+                <img
+                  src="../Assets/bars-solid.svg"
+                  class="dashboard-for-menu"
+                  onclick="openmenu()"
+                />
+              </div>
+            </div>
+            <div class="all-dashboard-content">
+              <div class="dashboard-content">
+                <a
+                  href="#"
+                  class="statistics-card"
+                  onclick="openTab(event, 'Users', 'User')"
+                >
+                  <div class="statistics-content">
+                    <img src="../Assets/admin-assets/Vector (7).png" alt="" />
+                    <div class="number">11</div>
+                  </div>
+                  <div class="statistics-for">
+                    <h1>Users</h1>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="statistics-card"
+                  onclick="openTab(event, 'Articles', 'article')"
+                >
+                  <div class="statistics-content">
+                    <img src="../Assets/admin-assets/Vector (8).png" alt="" />
+                    <div class="number">6</div>
+                  </div>
+                  <div class="statistics-for">
+                    <h1>Articles</h1>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  class="statistics-card"
+                  onclick="openTab(event, 'Projects', 'project')"
+                >
+                  <div class="statistics-content">
+                    <img src="../Assets/admin-assets/Vector (9).png" alt="" />
+                    <div class="number">14</div>
+                  </div>
+                  <div class="statistics-for">
+                    <h1>Projects</h1>
+                  </div>
+                </a>
+              </div>
+              <div class="dashboard-message-project-container">
+                <div
+                  class="dashboard-message-container"
+                  onclick="openTab(event, 'Messages', 'messageContainer')"
+                >
+                  <div class="dashboard-message-head">
+                    <h3>Messages</h3>
+                    <div>14 unread messages</div>
+                  </div>
+                  <hr />
+                  <div class="the-messages">
+                    <div class="dashboard-message-content">
+                      <div class="dashboard-user-message">
+                        <div class="dashboard-user-for-message">
+                          <img src="../Assets/andela 1.png" alt="" />
+                          <div>
+                            <h5>Andela Rwanda</h5>
+                            <p>Well done Cyusa!</p>
+                          </div>
+                        </div>
+                        <div class="message-number">1</div>
+                      </div>
+                      <hr />
+                      <div class="dashboard-user-message">
+                        <div class="dashboard-user-for-message">
+                          <img src="../Assets/andela 1.png" alt="" />
+                          <div>
+                            <h5>Andela Rwanda</h5>
+                            <p>Well done Cyusa!</p>
+                          </div>
+                        </div>
+                        <div class="message-number">1</div>
+                      </div>
+                      <hr />
+                      <div class="dashboard-user-message">
+                        <div class="dashboard-user-for-message">
+                          <img src="../Assets/andela 1.png" alt="" />
+                          <div>
+                            <h5>Andela Rwanda</h5>
+                            <p>Well done Cyusa!</p>
+                          </div>
+                        </div>
+                        <div class="message-number">1</div>
+                      </div>
+                      <hr />
+                      <div class="dashboard-user-message">
+                        <div class="dashboard-user-for-message">
+                          <img src="../Assets/andela 1.png" alt="" />
+                          <div>
+                            <h5>Andela Rwanda</h5>
+                            <p>Well done Cyusa!</p>
+                          </div>
+                        </div>
+                        <div class="message-number">1</div>
+                      </div>
+                      <hr />
+                      <div class="dashboard-user-message">
+                        <div class="dashboard-user-for-message">
+                          <img src="../Assets/andela 1.png" alt="" />
+                          <div>
+                            <h5>Andela Rwanda</h5>
+                            <p>Well done Cyusa!</p>
+                          </div>
+                        </div>
+                        <div class="message-number">1</div>
+                      </div>
+                      <hr />
+                    </div>
+                  </div>
+                </div>
+                <div class="dashboard-articles-container">
+                  <h3>Recently added articles</h3>
+                  <div class="article-container">
+                    <div class="the-articles-content">
+                      <div class="dashboard-blog-card">
+                        <div class="dashboard-blog-image">
+                          <img
+                            src="../Assets/blog-1.png"
+                            class="article-image"
+                          />
+                        </div>
+                        <div class="dashboard-blog-card-content">
+                          <h5>Reasons Business needs Agency</h5>
+                          <p>
+                            Design Club is a digital agency specialized in
+                            ecommerce. We build scalable, high-end web shops.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="nd-back-background"></div>
+                      <div class="nd-back-two--background"></div>
+                    </div>
+                    <div
+                      class="next-btn-div"
+                      onclick="openTab(event, 'Articles', 'article')"
+                    >
+                      <img
+                        src="../Assets/admin-assets/next.png"
+                        class="next-btn"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------------------Users--------------------------------------- -->
+
+          <div class="tabcontent" id="Users">
+            <div class="admin-content-header">
+              <h2>Users</h2>
+              <div>
+                <a class="button-hover the-new-btn"><span>14</span></a>
+              </div>
+              <div class="openmenu-container">
+                <img
+                  src="../Assets/bars-solid.svg"
+                  class="dashboard-for-menu"
+                  onclick="openmenu()"
+                />
+              </div>
+            </div>
+            <div class="users-headers">
+              <div>Name</div>
+              <div class="mail-header">Email</div>
+              <div>#Control</div>
+            </div>
+            <hr />
+            <div class="users-section">
+              <div class="users-list">
+                <div class="user-card">
+                  <div class="user-image-name">
+                    <div class="user-image-container">
+                      <img
+                        src="../Assets/admin-assets/Dwayne-Johnson 1.png"
+                        class="user-image"
+                      />
+                    </div>
+                    <div class="user-name">Dwayne Johnson</div>
+                    <div class="email-dropdown-container-1">
+                      <img
+                        src="../Assets/admin-assets/envelope-solid (1).svg"
+                        alt=""
+                      />
+                      <div onclick="showMail()">
+                        <img
+                          src="../Assets/admin-assets/caret-down-solid.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="the-dropdown-email" id="theMail">
+                        <div onclick="closeMail()">
+                          <img src="../Assets/xmark-solid.svg" alt="" />
+                        </div>
+                        <p>dwaynejohnson@mail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="email-dropdown-container-2">
+                    <img
+                      src="../Assets/admin-assets/envelope-solid (1).svg"
+                      alt=""
+                    />
+                    <div onclick="showMail()">
+                      <img
+                        src="../Assets/admin-assets/caret-down-solid.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="the-dropdown-email">
+                      <div onclick="closeMail()">
+                        <img src="../Assets/xmark-solid.svg" alt="" />
+                      </div>
+                      <p>dwaynejohnson@mail.com</p>
+                    </div>
+                  </div>
+                  <div class="user-email">dwaynejohnson@mail.com</div>
+
+                  <div class="remove-user-container">
+                    <button class="user-remove-btn">Remove</button>
+                  </div>
+                </div>
+                <hr />
+                <div class="user-card">
+                  <div class="user-image-name">
+                    <div class="user-image-container">
+                      <img
+                        src="../Assets/admin-assets/Dwayne-Johnson 1.png"
+                        class="user-image"
+                      />
+                    </div>
+                    <div class="user-name">Dwayne Johnson</div>
+                    <div class="email-dropdown-container-1">
+                      <img
+                        src="../Assets/admin-assets/envelope-solid (1).svg"
+                        alt=""
+                      />
+                      <div onclick="showMail()">
+                        <img
+                          src="../Assets/admin-assets/caret-down-solid.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="the-dropdown-email" id="theMail">
+                        <div onclick="closeMail()">
+                          <img src="../Assets/xmark-solid.svg" alt="" />
+                        </div>
+                        <p>dwaynejohnson@mail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="email-dropdown-container-2">
+                    <img
+                      src="../Assets/admin-assets/envelope-solid (1).svg"
+                      alt=""
+                    />
+                    <div onclick="showMail()">
+                      <img
+                        src="../Assets/admin-assets/caret-down-solid.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="the-dropdown-email" id="theMail">
+                      <div onclick="closeMail()">
+                        <img src="../Assets/xmark-solid.svg" alt="" />
+                      </div>
+                      <p>dwaynejohnson@mail.com</p>
+                    </div>
+                  </div>
+                  <div class="user-email">dwaynejohnson@mail.com</div>
+
+                  <div class="remove-user-container">
+                    <button class="user-remove-btn">Remove</button>
+                  </div>
+                </div>
+                <hr />
+                <div class="user-card">
+                  <div class="user-image-name">
+                    <div class="user-image-container">
+                      <img
+                        src="../Assets/admin-assets/Dwayne-Johnson 1.png"
+                        class="user-image"
+                      />
+                    </div>
+                    <div class="user-name">Dwayne Johnson</div>
+                    <div class="email-dropdown-container-1">
+                      <img
+                        src="../Assets/admin-assets/envelope-solid (1).svg"
+                        alt=""
+                      />
+                      <div onclick="showMail()">
+                        <img
+                          src="../Assets/admin-assets/caret-down-solid.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="the-dropdown-email" id="theMail">
+                        <div onclick="closeMail()">
+                          <img src="../Assets/xmark-solid.svg" alt="" />
+                        </div>
+                        <p>dwaynejohnson@mail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="email-dropdown-container-2">
+                    <img
+                      src="../Assets/admin-assets/envelope-solid (1).svg"
+                      alt=""
+                    />
+                    <div onclick="showMail()">
+                      <img
+                        src="../Assets/admin-assets/caret-down-solid.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="the-dropdown-email" id="theMail">
+                      <div onclick="closeMail()">
+                        <img src="../Assets/xmark-solid.svg" alt="" />
+                      </div>
+                      <p>dwaynejohnson@mail.com</p>
+                    </div>
+                  </div>
+                  <div class="user-email">dwaynejohnson@mail.com</div>
+
+                  <div class="remove-user-container">
+                    <button class="user-remove-btn">Remove</button>
+                  </div>
+                </div>
+                <hr />
+                <div class="user-card">
+                  <div class="user-image-name">
+                    <div class="user-image-container">
+                      <img
+                        src="../Assets/admin-assets/Dwayne-Johnson 1.png"
+                        class="user-image"
+                      />
+                    </div>
+                    <div class="user-name">Dwayne Johnson</div>
+                    <div class="email-dropdown-container-1">
+                      <img
+                        src="../Assets/admin-assets/envelope-solid (1).svg"
+                        alt=""
+                      />
+                      <div onclick="showMail()">
+                        <img
+                          src="../Assets/admin-assets/caret-down-solid.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="the-dropdown-email" id="theMail">
+                        <div onclick="closeMail()">
+                          <img src="../Assets/xmark-solid.svg" alt="" />
+                        </div>
+                        <p>dwaynejohnson@mail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="email-dropdown-container-2">
+                    <img
+                      src="../Assets/admin-assets/envelope-solid (1).svg"
+                      alt=""
+                    />
+                    <div onclick="showMail()">
+                      <img
+                        src="../Assets/admin-assets/caret-down-solid.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="the-dropdown-email" id="theMail">
+                      <div onclick="closeMail()">
+                        <img src="../Assets/xmark-solid.svg" alt="" />
+                      </div>
+                      <p>dwaynejohnson@mail.com</p>
+                    </div>
+                  </div>
+                  <div class="user-email">dwaynejohnson@mail.com</div>
+
+                  <div class="remove-user-container">
+                    <button class="user-remove-btn">Remove</button>
+                  </div>
+                </div>
+                <hr />
+                <div class="user-card">
+                  <div class="user-image-name">
+                    <div class="user-image-container">
+                      <img
+                        src="../Assets/admin-assets/Dwayne-Johnson 1.png"
+                        class="user-image"
+                      />
+                    </div>
+                    <div class="user-name">Dwayne Johnson</div>
+                    <div class="email-dropdown-container-1">
+                      <img
+                        src="../Assets/admin-assets/envelope-solid (1).svg"
+                        alt=""
+                      />
+                      <div onclick="showMail()">
+                        <img
+                          src="../Assets/admin-assets/caret-down-solid.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="the-dropdown-email" id="theMail">
+                        <div onclick="closeMail()">
+                          <img src="../Assets/xmark-solid.svg" alt="" />
+                        </div>
+                        <p>dwaynejohnson@mail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="email-dropdown-container-2">
+                    <img
+                      src="../Assets/admin-assets/envelope-solid (1).svg"
+                      alt=""
+                    />
+                    <div onclick="showMail()">
+                      <img
+                        src="../Assets/admin-assets/caret-down-solid.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="the-dropdown-email" id="theMail">
+                      <div onclick="closeMail()">
+                        <img src="../Assets/xmark-solid.svg" alt="" />
+                      </div>
+                      <p>dwaynejohnson@mail.com</p>
+                    </div>
+                  </div>
+                  <div class="user-email">dwaynejohnson@mail.com</div>
+
+                  <div class="remove-user-container">
+                    <button class="user-remove-btn">Remove</button>
+                  </div>
+                </div>
+                <hr />
+                <div class="user-card">
+                  <div class="user-image-name">
+                    <div class="user-image-container">
+                      <img
+                        src="../Assets/admin-assets/Dwayne-Johnson 1.png"
+                        class="user-image"
+                      />
+                    </div>
+                    <div class="user-name">Dwayne Johnson</div>
+                    <div class="email-dropdown-container-1">
+                      <img
+                        src="../Assets/admin-assets/envelope-solid (1).svg"
+                        alt=""
+                      />
+                      <div onclick="showMail()">
+                        <img
+                          src="../Assets/admin-assets/caret-down-solid.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="the-dropdown-email" id="theMail">
+                        <div onclick="closeMail()">
+                          <img src="../Assets/xmark-solid.svg" alt="" />
+                        </div>
+                        <p>dwaynejohnson@mail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="email-dropdown-container-2">
+                    <img
+                      src="../Assets/admin-assets/envelope-solid (1).svg"
+                      alt=""
+                    />
+                    <div onclick="showMail()">
+                      <img
+                        src="../Assets/admin-assets/caret-down-solid.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="the-dropdown-email" id="theMail">
+                      <div onclick="closeMail()">
+                        <img src="../Assets/xmark-solid.svg" alt="" />
+                      </div>
+                      <p>dwaynejohnson@mail.com</p>
+                    </div>
+                  </div>
+                  <div class="user-email">dwaynejohnson@mail.com</div>
+
+                  <div class="remove-user-container">
+                    <button class="user-remove-btn">Remove</button>
+                  </div>
+                </div>
+                <hr />
+                <div class="user-card">
+                  <div class="user-image-name">
+                    <div class="user-image-container">
+                      <img
+                        src="../Assets/admin-assets/Dwayne-Johnson 1.png"
+                        class="user-image"
+                      />
+                    </div>
+                    <div class="user-name">Dwayne Johnson</div>
+                    <div class="email-dropdown-container-1">
+                      <img
+                        src="../Assets/admin-assets/envelope-solid (1).svg"
+                        alt=""
+                      />
+                      <div onclick="showMail()">
+                        <img
+                          src="../Assets/admin-assets/caret-down-solid.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="the-dropdown-email" id="theMail">
+                        <div onclick="closeMail()">
+                          <img src="../Assets/xmark-solid.svg" alt="" />
+                        </div>
+                        <p>dwaynejohnson@mail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="email-dropdown-container-2">
+                    <img
+                      src="../Assets/admin-assets/envelope-solid (1).svg"
+                      alt=""
+                    />
+                    <div onclick="showMail()">
+                      <img
+                        src="../Assets/admin-assets/caret-down-solid.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="the-dropdown-email" id="theMail">
+                      <div onclick="closeMail()">
+                        <img src="../Assets/xmark-solid.svg" alt="" />
+                      </div>
+                      <p>dwaynejohnson@mail.com</p>
+                    </div>
+                  </div>
+                  <div class="user-email">dwaynejohnson@mail.com</div>
+
+                  <div class="remove-user-container">
+                    <button class="user-remove-btn">Remove</button>
+                  </div>
+                </div>
+                <hr />
+                <div class="user-card">
+                  <div class="user-image-name">
+                    <div class="user-image-container">
+                      <img
+                        src="../Assets/admin-assets/Dwayne-Johnson 1.png"
+                        class="user-image"
+                      />
+                    </div>
+                    <div class="user-name">Dwayne Johnson</div>
+                    <div class="email-dropdown-container-1">
+                      <img
+                        src="../Assets/admin-assets/envelope-solid (1).svg"
+                        alt=""
+                      />
+                      <div onclick="showMail()">
+                        <img
+                          src="../Assets/admin-assets/caret-down-solid.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="the-dropdown-email" id="theMail">
+                        <div onclick="closeMail()">
+                          <img src="../Assets/xmark-solid.svg" alt="" />
+                        </div>
+                        <p>dwaynejohnson@mail.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="email-dropdown-container-2">
+                    <img
+                      src="../Assets/admin-assets/envelope-solid (1).svg"
+                      alt=""
+                    />
+                    <div onclick="showMail()">
+                      <img
+                        src="../Assets/admin-assets/caret-down-solid.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="the-dropdown-email" id="theMail">
+                      <div onclick="closeMail()">
+                        <img src="../Assets/xmark-solid.svg" alt="" />
+                      </div>
+                      <p>dwaynejohnson@mail.com</p>
+                    </div>
+                  </div>
+                  <div class="user-email">dwaynejohnson@mail.com</div>
+
+                  <div class="remove-user-container">
+                    <button class="user-remove-btn">Remove</button>
+                  </div>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div>
+
+          <!-- --------------------messages---------------------------------------- -->
+
+          <div class="tabcontent" id="Messages">
+            <div class="admin-content-header">
+              <h2>Messages</h2>
+              <div>
+                <a class="button-hover the-new-btn"
+                  ><span>14 unread messages</span></a
+                >
+              </div>
+              <div class="openmenu-container">
+                <img
+                  src="../Assets/bars-solid.svg"
+                  class="dashboard-for-menu"
+                  onclick="openmenu()"
+                />
+              </div>
+            </div>
+            <div class="messages-container">
+              <div class="dashboard-message-content">
+                <div
+                  class="dashboard-user-message message-row"
+                  onclick="openTab(event, 'singleMessage', 'messageContainer')"
+                >
+                  <div class="dashboard-user-for-message">
+                    <img src="../Assets/andela 1.png" alt="" />
+                    <div>
+                      <h5>Andela Rwanda</h5>
+                      <p>Well done Cyusa!</p>
+                    </div>
+                  </div>
+                  <div class="message-number">1</div>
+                </div>
+                <hr />
+                <div
+                  class="dashboard-user-message message-row"
+                  onclick="openTab(event, 'singleMessage', 'messageContainer')"
+                >
+                  <div class="dashboard-user-for-message">
+                    <img src="../Assets/andela 1.png" alt="" />
+                    <div>
+                      <h5>Andela Rwanda</h5>
+                      <p>Well done Cyusa!</p>
+                    </div>
+                  </div>
+                  <div class="message-number">1</div>
+                </div>
+                <hr />
+                <div
+                  class="dashboard-user-message message-row"
+                  onclick="openTab(event, 'singleMessage', 'messageContainer')"
+                >
+                  <div class="dashboard-user-for-message">
+                    <img src="../Assets/andela 1.png" alt="" />
+                    <div>
+                      <h5>Andela Rwanda</h5>
+                      <p>Well done Cyusa!</p>
+                    </div>
+                  </div>
+                  <div class="message-number">1</div>
+                </div>
+                <hr />
+                <div
+                  class="dashboard-user-message message-row"
+                  onclick="openTab(event, 'singleMessage', 'messageContainer')"
+                >
+                  <div class="dashboard-user-for-message">
+                    <img src="../Assets/andela 1.png" alt="" />
+                    <div>
+                      <h5>Andela Rwanda</h5>
+                      <p>Well done Cyusa!</p>
+                    </div>
+                  </div>
+                  <div class="message-number">1</div>
+                </div>
+                <hr />
+                <div
+                  class="dashboard-user-message message-row"
+                  onclick="openTab(event, 'singleMessage', 'messageContainer')"
+                >
+                  <div class="dashboard-user-for-message">
+                    <img src="../Assets/andela 1.png" alt="" />
+                    <div>
+                      <h5>Andela Rwanda</h5>
+                      <p>Well done Cyusa!</p>
+                    </div>
+                  </div>
+                  <div class="message-number">1</div>
+                </div>
+                <hr />
+                <div
+                  class="dashboard-user-message message-row"
+                  onclick="openTab(event, 'singleMessage', 'messageContainer')"
+                >
+                  <div class="dashboard-user-for-message">
+                    <img src="../Assets/andela 1.png" alt="" />
+                    <div>
+                      <h5>Andela Rwanda</h5>
+                      <p>Well done Cyusa!</p>
+                    </div>
+                  </div>
+                  <div class="message-number">1</div>
+                </div>
+                <hr />
+                <div
+                  class="dashboard-user-message message-row"
+                  onclick="openTab(event, 'singleMessage', 'messageContainer')"
+                >
+                  <div class="dashboard-user-for-message">
+                    <img src="../Assets/andela 1.png" alt="" />
+                    <div>
+                      <h5>Andela Rwanda</h5>
+                      <p>Well done Cyusa!</p>
+                    </div>
+                  </div>
+                  <div class="message-number">1</div>
+                </div>
+                <hr />
+                <div
+                  class="dashboard-user-message message-row"
+                  onclick="openTab(event, 'singleMessage', 'messageContainer')"
+                >
+                  <div class="dashboard-user-for-message">
+                    <img src="../Assets/andela 1.png" alt="" />
+                    <div>
+                      <h5>Andela Rwanda</h5>
+                      <p>Well done Cyusa!</p>
+                    </div>
+                  </div>
+                  <div class="message-number">1</div>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div>
+
+          <!-- ------------------------Articles---------------------------------- -->
+
+          <div class="tabcontent" id="Articles">
+            <div class="admin-content-header the-header">
+              <h2>Articles/ Blogs</h2>
+              <div>
+                <a
+                  onclick="openTab(event, 'articleForm', 'article')"
+                  class="button-hover new-btn"
+                  ><span>Create new article &nbsp; &#10095; </span></a
+                >
+              </div>
+              <div class="openmenu-container">
+                <img
+                  src="../Assets/bars-solid.svg"
+                  class="dashboard-for-menu"
+                  onclick="openmenu()"
+                />
+              </div>
+            </div>
+            <div class="all-articles">
+              <div class="blog-container" id="blogContainer">
+                <!-- <div class="blog-card">
+                  <div class="blog-image">
+                    <img src="../Assets/blog-1.png" class="the-blog-image" />
+                    <div class="blur-div">
+                      <button class="Edit-btn blueEdit">Edit</button>
+                      <button class="Edit-btn redRemove">Delete</button>
+                    </div>
+                  </div>
+                  <div class="blog-card-content">
+                    <h3>Reasons Business needs Agency</h3>
+                    <p>
+                      Design Club is a digital agency specialized in ecommerce.
+                      We build scalable, high-end web shops.
+                    </p>
+                    <div class="blog-card-stats">
+                      <div class="blog-btn">
+                        <i class="fa-solid fa-heart liked"></i>
+                        201
+                      </div>
+                      <div class="blog-btn">
+                        <img src="../Assets/comment-solid.svg" alt="" />
+                        301
+                      </div>
+                      <div>
+                        <a
+                          onclick="openTab(event, 'singleBlog', 'article')"
+                          class="button-hover blog-btn"
+                          ><span>See more &nbsp; &#10095;</span></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="blog-card">
+                  <div class="blog-image">
+                    <img src="../Assets/blog-2.png" class="the-blog-image" />
+                    <div class="blur-div">
+                      <button class="Edit-btn blueEdit">Edit</button>
+                      <button class="Edit-btn redRemove">Delete</button>
+                    </div>
+                  </div>
+                  <div class="blog-card-content">
+                    <h3>Maximizing your marketing budget</h3>
+                    <p>
+                      Design Club is a digital agency specialized in ecommerce.
+                      We build scalable, high-end web shops.
+                    </p>
+                    <div class="blog-card-stats">
+                      <div class="blog-btn">
+                        <i class="fa-solid fa-heart"></i>
+                        68
+                      </div>
+                      <div class="blog-btn">
+                        <img src="../Assets/comment-solid.svg" alt="" />
+                        50
+                      </div>
+                      <div>
+                        <a
+                          onclick="openTab(event, 'singleBlog', 'article')"
+                          class="button-hover blog-btn"
+                          ><span>See more &nbsp; &#10095;</span></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="blog-card">
+                  <div class="blog-image">
+                    <img src="../Assets/blog-3.png" class="the-blog-image" />
+                    <div class="blur-div">
+                      <button class="Edit-btn blueEdit">Edit</button>
+                      <button class="Edit-btn redRemove">Delete</button>
+                    </div>
+                  </div>
+                  <div class="blog-card-content">
+                    <h3>How a creative agency can help?</h3>
+                    <p>
+                      Design Club is a digital agency specialized in ecommerce.
+                      We build scalable, high-end web shops.
+                    </p>
+                    <div class="blog-card-stats">
+                      <div class="blog-btn">
+                        <i class="fa-solid fa-heart"></i>
+                        500
+                      </div>
+                      <div class="blog-btn">
+                        <img src="../Assets/comment-solid.svg" alt="" />
+                        90
+                      </div>
+                      <div>
+                        <a
+                          onclick="openTab(event, 'singleBlog', 'article')"
+                          class="button-hover blog-btn"
+                          ><span>See more &nbsp; &#10095;</span></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- --------------------------Projects-------------------------------- -->
+
+          <div class="tabcontent" id="Projects">
+            <div class="admin-content-header the-header">
+              <h2>Projects</h2>
+              <div>
+                <a
+                  onclick="openTab(event, 'projectForm', 'project')"
+                  class="button-hover new-btn"
+                  ><span>Add Project &nbsp; &#10095; </span></a
+                >
+              </div>
+              <div class="openmenu-container">
+                <img
+                  src="../Assets/bars-solid.svg"
+                  class="dashboard-for-menu"
+                  onclick="openmenu()"
+                />
+              </div>
+            </div>
+            <div class="tab-container">
+              <div class="portfolio-tab">
+                <button
+                  class="tablinks-projects"
+                  onclick="openTabProject(event, 'Tab1')"
+                >
+                  My Work
+                </button>
+                <button
+                  class="tablinks-projects"
+                  onclick="openTabProject(event, 'Tab2')"
+                >
+                  Personal Projects
+                </button>
+              </div>
+            </div>
+            <div class="portfolio-container">
+              <div class="portfolio-content">
+                <div id="Tab1" class="tabcontentproject">
+                  <div class="project-card">
+                    <img src="../Assets/project-1.png" class="project-image" />
+                    <div class="layer">
+                      <div class="edit-remove-container">
+                        <button class="Edit-btn blueEdit">Edit</button>
+                        <button class="Edit-btn redRemove">Remove</button>
+                      </div>
+                      <h3>Website Designing</h3>
+                      <p>
+                        We help e-commerce brands navigate the ever changing
+                        landscape of digital marketing with best-in-class
+                        creative, personalized paid media strategies.
+                      </p>
+                      <a href="#" class="project-link">
+                        <img src="../Assets/link-solid (1).svg" class="link" />
+                        Link
+                      </a>
+                    </div>
+                  </div>
+                  <div class="project-card">
+                    <img src="../Assets/project-2.png" class="project-image" />
+                    <div class="layer">
+                      <div class="edit-remove-container">
+                        <button class="Edit-btn blueEdit">Edit</button>
+                        <button class="Edit-btn redRemove">Remove</button>
+                      </div>
+                      <h3>UXUI - Graphic Designing</h3>
+                      <p>
+                        We help e-commerce brands navigate the ever changing
+                        landscape of digital marketing with best-in-class
+                        creative, personalized paid media strategies.
+                      </p>
+                      <a href="#" class="project-link">
+                        <img src="../Assets/link-solid (1).svg" class="link" />
+                        Link
+                      </a>
+                    </div>
+                  </div>
+                  <div class="project-card">
+                    <img src="../Assets/project-3.png" class="project-image" />
+                    <div class="layer">
+                      <div class="edit-remove-container">
+                        <button class="Edit-btn blueEdit">Edit</button>
+                        <button class="Edit-btn redRemove">Remove</button>
+                      </div>
+                      <h3>Web Development</h3>
+                      <p>
+                        We help e-commerce brands navigate the ever changing
+                        landscape of digital marketing with best-in-class
+                        creative, personalized paid media strategies.
+                      </p>
+                      <a href="#" class="project-link">
+                        <img src="../Assets/link-solid (1).svg" class="link" />
+                        Link
+                      </a>
+                    </div>
+                  </div>
+                  <div class="project-card">
+                    <img src="../Assets/project-4.png" class="project-image" />
+                    <div class="layer">
+                      <div class="edit-remove-container">
+                        <button class="Edit-btn blueEdit">Edit</button>
+                        <button class="Edit-btn redRemove">Remove</button>
+                      </div>
+                      <h3>eousva - Product Branding</h3>
+                      <p>
+                        We help e-commerce brands navigate the ever changing
+                        landscape of digital marketing with best-in-class
+                        creative, personalized paid media strategies.
+                      </p>
+                      <a href="#" class="project-link">
+                        <img src="../Assets/link-solid (1).svg" class="link" />
+                        Link
+                      </a>
+                    </div>
+                  </div>
+                  <div class="project-card">
+                    <img src="../Assets/project-5.png" class="project-image" />
+                    <div class="layer">
+                      <div class="edit-remove-container">
+                        <button class="Edit-btn blueEdit">Edit</button>
+                        <button class="Edit-btn redRemove">Remove</button>
+                      </div>
+                      <h3>Social Media</h3>
+                      <p>
+                        We help e-commerce brands navigate the ever changing
+                        landscape of digital marketing with best-in-class
+                        creative, personalized paid media strategies.
+                      </p>
+                      <a href="#" class="project-link">
+                        <img src="../Assets/link-solid (1).svg" class="link" />
+                        Link
+                      </a>
+                    </div>
+                  </div>
+                  <div class="project-card">
+                    <img src="../Assets/project-6.png" class="project-image" />
+                    <div class="layer">
+                      <div class="edit-remove-container">
+                        <button class="Edit-btn blueEdit">Edit</button>
+                        <button class="Edit-btn redRemove">Remove</button>
+                      </div>
+                      <h3>Product - Design</h3>
+                      <p>
+                        We help e-commerce brands navigate the ever changing
+                        landscape of digital marketing with best-in-class
+                        creative, personalized paid media strategies.
+                      </p>
+                      <a href="#" class="project-link">
+                        <img src="../Assets/link-solid (1).svg" class="link" />
+                        Link
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="Tab2" class="tabcontentproject">
+                  <div class="project-card">
+                    <img src="../Assets/meSnave 1.png" class="project-image" />
+                    <div class="layer">
+                      <div class="edit-remove-container">
+                        <button class="Edit-btn blueEdit">Edit</button>
+                        <button class="Edit-btn redRemove">Remove</button>
+                      </div>
+                      <h3>My portfolio</h3>
+                      <p>
+                        I creates websites and applications using web languages
+                        such as HTML, CSS, and JavaScript that allow users to
+                        access and interact with the site or app.
+                      </p>
+                      <a href="#" class="project-link">
+                        <img src="../Assets/link-solid (1).svg" class="link" />
+                        Link
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- -------------------Single Blog------------------------------------------ -->
+          <div class="tabcontent" id="singleBlog">
+            <div class="admin-content-header">
+              <h2 class="single-blog-title">Reasons Business needs Agency</h2>
+              <div>
+                <a
+                  onclick="openTab(event, 'Articles', 'article')"
+                  class="button-hover new-btn"
+                  ><span>Back &nbsp; &#10095; </span></a
+                >
+              </div>
+              <div class="openmenu-container">
+                <img
+                  src="../Assets/bars-solid.svg"
+                  class="dashboard-for-menu"
+                  onclick="openmenu()"
+                />
+              </div>
+            </div>
+            <div class="all-single-blog-content" id="allSingleBlogContent">
+              <div class="single-blog-section">
+                <div class="single-blog-container-2">
+                  <div class="single-blog-description">
+                    <div>
+                      <img
+                        src="../Assets/blog-1.png"
+                        class="single-blog-image"
+                      />
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nulla commodo consequat lorem, eget convallis velit
+                      venenatis ut. Duis id mauris ac sapien ultrices bibendum.
+                      Vestibulum ante ipsum primis in faucibus orci luctus et
+                      ultrices posuere cubilia Curae; Integer ut tristique
+                      nulla, nec fermentum orci. Sed lobortis arcu sit amet nisi
+                      vehicula, non tristique nisi rhoncus.
+                      <br /><br />
+                      Sed ac nibh commodo, mollis dui in, feugiat nunc. In hac
+                      habitasse platea dictumst. Sed ac felis nec tortor
+                      fermentum facilisis. Vivamus quis justo mauris. Sed
+                      vestibulum, magna sit amet congue ultricies, eros elit
+                      tincidunt metus, id vehicula quam ex in tellus. Nullam
+                      volutpat tincidunt massa sit amet sodales. Sed luctus
+                      turpis ut odio fermentum, at pharetra nunc tempor. Integer
+                      euismod justo a lectus tempor varius. Sed euismod purus ut
+                      risus placerat, eget pharetra justo finibus. Sed vel
+                      molestie orci.Lorem ipsum dolor sit amet, consectetur
+                      adipiscing elit. Nulla commodo consequat lorem, eget
+                      convallis velit venenatis ut. Duis id mauris ac sapien
+                      ultrices bibendum. Vestibulum ante ipsum primis in
+                      faucibus orci luctus et ultrices posuere cubilia Curae;
+                      Integer ut tristique nulla, nec fermentum orci. Sed
+                      lobortis arcu sit amet nisi vehicula, non tristique nisi
+                      rhoncus. Sed ac nibh commodo, mollis dui in, feugiat nunc.
+                      In hac habitasse platea dictumst. Sed ac felis nec tortor
+                      fermentum facilisis. Vivamus quis justo mauris. Sed
+                      vestibulum, magna sit amet congue ultricies, eros elit
+                      tincidunt metus, id vehicula quam ex in tellus. Nullam
+                      volutpat tincidunt massa sit amet sodales. Sed luctus
+                      turpis ut odio fermentum, at pharetra nunc tempor. Integer
+                      euismod justo a lectus tempor varius. Sed euismod purus ut
+                      risus placerat, eget pharetra justo finibus. Sed vel
+                      molestie orci. Lorem ipsum dolor sit amet, consectetur
+                      adipiscing elit.
+                      <br /><br />
+                      Nulla commodo consequat lorem, eget convallis velit
+                      venenatis ut. Duis id mauris ac sapien ultrices bibendum.
+                      Vestibulum ante ipsum primis in faucibus orci luctus et
+                      ultrices posuere cubilia Curae; Integer ut tristique
+                      nulla, nec fermentum orci. Sed lobortis arcu sit amet nisi
+                      vehicula, non tristique nisi rhoncus. Sed ac nibh commodo,
+                      mollis dui in, feugiat nunc. In hac habitasse platea
+                      dictumst. Sed ac felis nec tortor fermentum facilisis.
+                      Vivamus quis justo mauris. Sed vestibulum, magna sit amet
+                      congue ultricies, eros elit tincidunt metus, id vehicula
+                      quam ex in tellus. Nullam volutpat tincidunt massa sit
+                      amet sodales. Sed luctus turpis ut odio fermentum, at
+                      pharetra nunc tempor. Integer euismod justo a lectus
+                      tempor varius. Sed euismod purus ut risus placerat, eget
+                      pharetra justo finibus. Sed vel molestie orci.
+                    </div>
+                    <div class="single-comment-section">
+                      <h3>Comments</h3>
+                      <div class="comments-list">
+                        <div class="comment-container">
+                          <div class="comment-user">
+                            <img src="../Assets/andela 1.png" alt="" />
+                            <p>Andela Rwanda</p>
+                          </div>
+                          <div class="comment-description">
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit. Nulla commodo consequat lorem, eget
+                              convallis velit venenatis ut. Duis id mauris ac
+                              sapien ultrices bibendum.
+                            </p>
+                            <div>
+                              <img src="../Assets/heart-solid.svg" alt="" />
+                            </div>
+                          </div>
+                          <div class="comment-replies">
+                            <div class="reply-title-container">
+                              <div class="the-title-container">
+                                <img src="../Assets/Vector.png" alt="" />
+                                Replies
+                              </div>
+                              <button class="Edit-btn redRemove delete-comment">
+                                Remove
+                              </button>
+                            </div>
+                            <div class="replies-container">
+                              <div class="reply-message">
+                                <img src="../Assets/R-Image(3) 1.png" alt="" />
+                                <p>Thank you</p>
+                              </div>
+                              <div>
+                                <img src="../Assets/heart-solid.svg" alt="" />
+                              </div>
+                            </div>
+                          </div>
+                          <br />
+                          <hr />
+                        </div>
+                      </div>
+                      <div class="add-comment-container">
+                        <div class="comment-stats">
+                          <img src="../Assets/heart-solid.svg" alt="" />
+                          201
+                        </div>
+                        <div class="add-comment-input">
+                          <form action="" method="post">
+                            <input
+                              type="text"
+                              class="add-input"
+                              placeholder="Add a comment"
+                            />
+                            <button
+                              type="submit"
+                              class="add-comment-submit-btn"
+                            >
+                              <img src="../Assets/Vector (1).png" alt="" />
+                              Share
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ---------------------Article creation form------------------------------ -->
+          <div class="tabcontent" id="articleForm">
+            <div class="form-container">
+              <form class="article-form" id="adminArticleForm">
+                <div class="article-form-container-1">
+                  <div>
+                    <div class="file-input-container">
+                      <div id="imagePreview">
+                        <div id="chooseFileBtn">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-camera-fill"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"
+                            />
+                            <path
+                              d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"
+                            />
+                          </svg>
+                          Choose file
+                        </div>
+                      </div>
+                      <input
+                        type="file"
+                        id="imageUpload"
+                        accept="images/*"
+                        onchange="previewImage(event, 'chooseFileBtn', 'imagePreview')"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <p>
+                      <label for="">Title:</label>
+                      <br />
+                      <input
+                        type="text"
+                        id="title"
+                        class="article-input-title"
+                        placeholder="Title"
+                      />
+                    </p>
+                    <hr />
+                    <br /><br />
+                    <p>
+                      <label for="">Published At:</label>
+                      <br />
+                      <input
+                        type="date"
+                        id="PublishedDate"
+                        class="article-input-date"
+                      />
+                    </p>
+                  </div>
+                </div>
+                <div class="article-form-container-2">
+                  <textarea
+                    class="article-textarea"
+                    id="articleTextarea"
+                    placeholder="Enter your text here"
+                  ></textarea>
+                </div>
+                <div class="article-btns-container">
+                  <div class="articleValidation" id="articleValidationForm">
+                    hello
+                  </div>
+                  <div class="the-add-btns">
+                    <button
+                      type="button"
+                      class="Edit-btn blueEdit"
+                      onclick="openTab(event, 'Articles', 'article')"
+                    >
+                      Cancel
+                    </button>
+                    <button type="submit" class="Edit-btn addBtn">Add</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- ---------------------project creation form------------------------------ -->
+          <div class="tabcontent" id="projectForm">
+            <div class="form-container">
+              <form class="article-form" id="adminProjectForm">
+                <div class="article-form-container-1">
+                  <div>
+                    <div id="imageProjectPreview">
+                      <div id="chooseFileProjectBtn">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-camera-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"
+                          />
+                          <path
+                            d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"
+                          />
+                        </svg>
+                        Choose Project Image
+                      </div>
+                    </div>
+                    <input
+                      type="file"
+                      id="imageProjectUpload"
+                      accept="images/*"
+                      onchange="previewImage(event, 'chooseFileProjectBtn', 'imageProjectPreview')"
+                    />
+                  </div>
+                  <div>
+                    <p>
+                      <label for="projectTitle">Project Title:</label>
+                      <br />
+                      <input
+                        type="text"
+                        id="projectTitle"
+                        class="article-input-title"
+                        placeholder="Title"
+                      />
+                    </p>
+                    <hr />
+                    <br /><br />
+                    <p>
+                      <label for="link">Project Link:</label>
+                      <br />
+                      <input type="text" id="link" class="article-input-date" />
+                    </p>
+                  </div>
+                </div>
+
+                <div class="article-form-container-2">
+                  <textarea
+                    class="article-textarea"
+                    id="projectTextarea"
+                    placeholder="Enter your text here"
+                  ></textarea>
+                </div>
+                <div class="article-btns-container">
+                  <div
+                    class="articleValidation"
+                    id="projectValidationForm"
+                  ></div>
+                  <div class="the-add-btns">
+                    <button
+                      class="Edit-btn blueEdit"
+                      onclick="openTab(event, 'Projects', 'project')"
+                    >
+                      Cancel
+                    </button>
+                    <button class="Edit-btn addBtn" type="submit">Add</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- -------------------------folio creation form---------------------------- -->
+          <div class="tabcontent" id="folioForm">
+            <div class="form-container">
+              <form class="article-form" id="folioAdminForm">
+                <div class="folio-whole-forms">
+                  <h2 class="folioTitle">Home</h2>
+                  <div class="article-form-container-1">
+                    <div class="image-div">
+                      <div id="imageFolioPreview">
+                        <div id="chooseFileFolioBtn">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-camera-fill"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"
+                            />
+                            <path
+                              d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"
+                            />
+                          </svg>
+                          Choose Home Image
+                        </div>
+                      </div>
+                      <input
+                        type="file"
+                        id="imageFolioUpload"
+                        accept="images/*"
+                        onchange="previewImage(event, 'chooseFileFolioBtn', 'imageFolioPreview')"
+                      />
+                    </div>
+                    <div>
+                      <p>
+                        <input
+                          type="text"
+                          id="homeName"
+                          class="folio-input"
+                          placeholder="Name"
+                        />
+                      </p>
+                      <p>
+                        <input
+                          type="text"
+                          id="homeFirstProffesion"
+                          class="folio-input"
+                          placeholder="First proffesion"
+                        />
+                      </p>
+                      <p>
+                        <input
+                          type="text"
+                          id="homeSecondProffesion"
+                          class="folio-input"
+                          placeholder="Second proffesion"
+                        />
+                      </p>
+                      <p>
+                        <input
+                          type="text"
+                          id="bannerService"
+                          class="folio-input inline"
+                          placeholder="Banner services"
+                        />
+                        <button class="Edit-btn blueEdit">Add</button>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="article-form-container-2">
+                    <textarea
+                      name=""
+                      id="homeDescription"
+                      class="radius-20"
+                      placeholder="Home description here"
+                    ></textarea>
+                  </div>
+                  <h2 class="folioTitle">Services</h2>
+                  <div class="article-form-container-1">
+                    <div>
+                      <p>
+                        <label for="">Service logo:</label>
+                        <input
+                          type="file"
+                          name=""
+                          id="serviceLogoImage"
+                          class="folio-input"
+                        />
+                      </p>
+                      <p>
+                        <input
+                          type="text"
+                          id="serviceTitle"
+                          class="folio-input"
+                          placeholder="Service title"
+                        />
+                      </p>
+                    </div>
+                    <div>
+                      <textarea
+                        name=""
+                        id="serviceCardDescription"
+                        class="folio-input folio-textarea service-textarea"
+                        placeholder="Service description here"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <h2 class="folioTitle">Contacts</h2>
+                  <div class="article-form-container-1">
+                    <div>
+                      <p>
+                        <label for="">Phone number: </label>
+                        <input
+                          type="text"
+                          id="phoneNumber"
+                          class="folio-input"
+                          placeholder="Phone number"
+                        />
+                      </p>
+                      <p>
+                        <label for="">Email: </label>
+                        <input
+                          type="email"
+                          id="contactEmail"
+                          class="folio-input"
+                          placeholder="Email"
+                        />
+                      </p>
+                    </div>
+                    <div>
+                      <p>
+                        <input
+                          type="text"
+                          id="instaLink"
+                          class="folio-input"
+                          placeholder="Instagram link"
+                        />
+                      </p>
+                      <p>
+                        <input
+                          type="text"
+                          id="xLink"
+                          class="folio-input"
+                          placeholder="Twitter link"
+                        />
+                      </p>
+                      <p>
+                        <input
+                          type="text"
+                          id="facebookLink"
+                          class="folio-input"
+                          placeholder="Facebook link"
+                        />
+                      </p>
+                      <p>
+                        <input
+                          type="text"
+                          id="githubLink"
+                          class="folio-input"
+                          placeholder="Github link"
+                        />
+                      </p>
+                    </div>
+                  </div>
+                  <h2 class="folioTitle">About</h2>
+                  <div class="article-form-container-2">
+                    <textarea
+                      name=""
+                      id="aboutDescription"
+                      class="folio-input folio-textarea"
+                      placeholder="About description here"
+                    ></textarea>
+                  </div>
+                  <br /><br /><br />
+                  <div class="article-form-container-1 about-form-co">
+                    <div class="the-education-div">
+                      <h3 class="folioTitle">Education</h3>
+                      <p></p>
+
+                      <p>
+                        <select
+                          name=""
+                          id="educationOption"
+                          class="folio-input"
+                        >
+                          <option value="" onclick="educationSelectedField()">
+                            Education
+                          </option>
+                          <option value="">Relevant Coursework</option>
+                        </select>
+                      </p>
+                      <div id="education-about">
+                        <div class="education-divs">
+                          <p>
+                            <input
+                              type="text"
+                              id="educationInstitutionName"
+                              class="folio-input"
+                              placeholder="Institution name"
+                            />
+                          </p>
+                          <p>
+                            <input
+                              type="text"
+                              id="educationLocation"
+                              class="folio-input"
+                              placeholder="Location"
+                            />
+                          </p>
+                          <p>
+                            <label for="">Graduation date: </label>
+                            <input
+                              type="date"
+                              id="GraduationDate"
+                              class="folio-input"
+                              placeholder="Graduation date"
+                            />
+                          </p>
+                          <div id="moreEducationfield"></div>
+                        </div>
+                        <button
+                          class="Edit-btn blueEdit add-more"
+                          type="button"
+                          onclick="addEducation()"
+                        >
+                          Add more
+                        </button>
+                      </div>
+                      <div class="education-divs" id="Coursework-about">
+                        <p>
+                          <input
+                            type="text"
+                            id="educationCoursework"
+                            class="folio-input"
+                            placeholder="Add here"
+                          />
+                        </p>
+                        <button class="Edit-btn blueEdit add-more">
+                          Add more
+                        </button>
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <h3 class="folioTitle">Skills</h3>
+                        <p>
+                          <input
+                            type="text"
+                            id="aboutSkill"
+                            class="folio-input"
+                            placeholder="Add here"
+                          />
+                        </p>
+                        <button class="Edit-btn blueEdit add-more">
+                          Add more
+                        </button>
+                      </div>
+                      <div>
+                        <h3 class="folioTitle">Experience</h3>
+                        <p>
+                          <input
+                            type="text"
+                            class="folio-input"
+                            placeholder="Proffession"
+                          />
+                        </p>
+                        <p>
+                          <input
+                            type="text"
+                            class="folio-input"
+                            placeholder="Institution name"
+                          />
+                        </p>
+                        <p>
+                          <input
+                            type="text"
+                            class="folio-input"
+                            placeholder="Location"
+                          />
+                        </p>
+                        <p>
+                          <input
+                            type="text"
+                            class="folio-input inline"
+                            placeholder="Add responsibility"
+                          />
+                          <button class="Edit-btn blueEdit">Add</button>
+                        </p>
+                        <button class="Edit-btn blueEdit add-more">
+                          Add more
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="article-btns-container">
+                  <div class="articleValidation" id="folioValidationForm"></div>
+                  <div class="the-add-btns">
+                    <button
+                      class="Edit-btn blueEdit"
+                      onclick="openTab(event, 'Dashboard', 'dash')"
+                    >
+                      Cancel
+                    </button>
+                    <button class="Edit-btn addBtn" type="submit">Add</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- ------------------------one message reply-------------------------------- -->
+          <div class="tabcontent" id="singleMessage">
+            <div class="single-message-head-container">
+              <div class="user-info-message">
+                <img src="../Assets/andela 1.png" alt="" />
+                <h3>Andela Rwanda</h3>
+              </div>
+              <div>
+                <a
+                  onclick="openTab(event, 'Messages','messageContainer')"
+                  class="button-hover new-btn"
+                  ><span>Back &nbsp; &#10095; </span></a
+                >
+              </div>
+            </div>
+            <div class="my-single-message-container">
+              <div class="single-message-content">
+                <div class="the-single-message">
+                  <div class="the-empty-div">
+                    <ion-icon name="chatbubbles" class="direct-icon"></ion-icon>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris
+                  </p>
+                  <div class="reply-email-container">
+                    <a
+                      href="#"
+                      class="viaEmail"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Reply via email</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../Scripts/admin.js"></script>
+    <script src="../Scripts/adminArticle.js"></script>
+    <script src="../Scripts/allAdminArticles.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      tinymce.init({
+        selector: "textarea#articleTextarea",
+        skin: "oxide-dark",
+        content_css: "../skins/content/snave/content.css",
+        plugins:
+          "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss",
+        toolbar:
+          "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+        tinycomments_mode: "embedded",
+        tinycomments_author: "Author name",
+
+        mergetags_list: [
+          { value: "First.Name", title: "First Name" },
+          { value: "Email", title: "Email" },
+        ],
+        ai_request: (request, respondWith) =>
+          respondWith.string(() =>
+            Promise.reject("See docs to implement AI Assistant")
+          ),
+      });
+    </script>
+  </body>
+</html>

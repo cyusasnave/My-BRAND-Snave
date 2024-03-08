@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --fav-color: #a6a001;
+  --black-light: #1e1e1e;
+  --base-black: #101113;
+  --light-gray: #616161;
+  --nd-light-gray: #acacac;
+  --XX-small-font-size: 0.5rem;
+  --X-small-font-size: 0.75rem;
+  --small-font-size: 1rem;
+  --medium-font-size: 1.25rem;
+  --large-font-size: 1.5rem;
+  --extra-large-font-size: 2rem;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../Assets/me-background.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--base-black);
+}
+.back-blur {
+  width: 100%;
+  height: 100%;
+}
+.signIn-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sign-form-container {
+  width: 50%;
+  height: max-content;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1rem 2rem;
+}
+.sign-form-container > * {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.signIn-input {
+  width: 100%;
+  padding: 8px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: var(--X-small-font-size);
+  margin-bottom: 20px;
+  outline: none;
+}
+.sign-submit-button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sign-submit-button:hover {
+  background: var(--fav-color);
+}
+.google-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 9px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: var(--X-small-font-size);
+  cursor: pointer;
+}
+.google-button img {
+  width: 20px;
+}
+.sign-form-container > p {
+  font-size: var(--X-small-font-size);
+  line-height: var(--large-font-size);
+  color: white;
+  text-align: center;
+}
+.link {
+  color: var(--fav-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+.link:hover {
+  color: rgb(67, 19, 19);
+}
+.login-inputs {
+  margin: 1rem 0;
+}
+.signIn-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.signIn-head > h1 {
+  color: transparent;
+  -webkit-text-stroke: 0.025svw white;
+  text-transform: uppercase;
+}
+.button-hover {
+  position: relative;
+  background: transparent;
+  transition: 0.3s ease-in-out;
+  padding: 6px 15px 6px 12px;
+  border-radius: 100svw;
+  color: #fff;
+  text-decoration: none;
+  font-size: var(--X-small-font-size);
+}
+.button-hover span {
+  z-index: 1;
+}
+.button-hover::before {
+  content: "";
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  background-color: var(--fav-color);
+  border-radius: 100svw;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+.button-hover:hover {
+  color: #fff;
+  z-index: 2;
+}
+.button-hover:hover::before {
+  width: 100%;
+  z-index: -1;
+}
+.validation-container{
+  width: 100%;
+  height: max-content;
+  min-height: 50px;
+  color: white;
+  background: rgba(80, 14, 14, 0.822);
+  display: none;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  font-size: var(--small-font-size);
+}
+
+@media (max-width: 950px) {
+  body {
+    background-image: url(../Assets/phone-background.png);
+  }
+  .back-blur {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  .google-button {
+    font-size: 0.75rem;
+  }
+  .sign-form-container {
+    width: 80%;
+  }
+  .sign-form-container > p {
+    font-size: 0.75rem;
+  }
+}
