@@ -94,3 +94,23 @@ const addEducation = () => {
     </p>
   `;
 };
+
+const token = localStorage.getItem('token');
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const response = await fetch('https://mybrand-be-asyh.onrender.com/api/users/loggedInUser', 
+  {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+
+  const data = await response.json();
+  const nameEl = document.getElementById('adminName');
+  const roleEl = document.getElementById('adminRole');
+  const emailEl = document.getElementById('adminEmail');
+
+  nameEl.textContent = data.user.name;
+  roleEl.textContent = data.user.role;
+  emailEl.textContent = data.user.email;
+})

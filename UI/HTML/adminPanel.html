@@ -28,6 +28,9 @@
   </head>
   <body>
     <main>
+      <div id="loader-container">
+        <div class="loader"></div>
+      </div>
       <div class="admin-panel-container">
         <!-- ----------------------------navigation-bar------------------------------------ -->
 
@@ -96,8 +99,8 @@
           <div class="admin-profile-container">
             <img src="../Assets/admin-assets/me 1.png" alt="" />
             <div class="admin-profile-content">
-              <p>Snave CYUSA <span>/Admin</span></p>
-              <p><span>cyusasnaveee@gmail.com</span></p>
+              <p id="adminName">Snave CYUSA <span id="adminRole">/Admin</span></p>
+              <p><span id="adminEmail">cyusasnaveee@gmail.com</span></p>
               <a
                 onclick="openTab(event, 'folioForm')"
                 class="admin-btn edit-btn"
@@ -111,6 +114,13 @@
         <!-- -----------------------main content---------------------------------------- -->
 
         <div class="admin-all-content">
+          <div class="form-result-div" id="form-result-div">
+            <div id="responseContainer">
+              <div id="result"></div>
+              <div id="information"></div>
+              <div class="loader-two"></div>
+            </div>
+          </div>
           <!-- ---------------------dashboard------------------------------------- -->
 
           <div class="tabcontent" id="Dashboard">
@@ -1352,6 +1362,7 @@
                       </div>
                       <input
                         type="file"
+                        name="image"
                         id="imageUpload"
                         accept="images/*"
                         onchange="previewImage(event, 'chooseFileBtn', 'imagePreview')"
@@ -1364,6 +1375,7 @@
                       <br />
                       <input
                         type="text"
+                        name="title"
                         id="title"
                         class="article-input-title"
                         placeholder="Title"
@@ -1376,6 +1388,7 @@
                       <br />
                       <input
                         type="date"
+                        name="date"
                         id="PublishedDate"
                         class="article-input-date"
                       />
@@ -1385,9 +1398,10 @@
                 <div class="article-form-container-2">
                   <textarea
                     class="article-textarea"
+                    name="content"
                     id="articleTextarea"
                     placeholder="Enter your text here"
-                  ></textarea>
+                    ></textarea>
                 </div>
                 <div class="article-btns-container">
                   <div class="articleValidation" id="articleValidationForm">

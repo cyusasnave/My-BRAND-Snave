@@ -25,11 +25,25 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--base-black);
+  overflow: hidden;
 }
+/* Specific styles for the loader */
+.loader-wrapper {
+  /* Place your loader styles here */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure loader appears above other content */
+}
+
 .back-blur {
   width: 100%;
   height: 100%;
 }
+
+/* Additional styles for the loader animation, if necessary */
+
 .signIn-section {
   width: 100%;
   height: 100%;
@@ -42,13 +56,12 @@ body {
   height: max-content;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem !important;
 }
 .sign-form-container > * {
   width: 100%;
   margin-bottom: 20px;
 }
-
 .signIn-input {
   width: 100%;
   padding: 8px 10px;
@@ -57,7 +70,7 @@ body {
   border-bottom: 1px solid white;
   color: white;
   font-size: var(--X-small-font-size);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   outline: none;
 }
 .sign-submit-button {
@@ -161,7 +174,50 @@ body {
   text-align: center;
   align-items: center;
   padding: 10px;
-  font-size: var(--small-font-size);
+  font-size: var(--X-small-font-size);
+}
+
+/* HTML: <div class="loader"></div> */
+#loader-container{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  width: 70px;
+  aspect-ratio: 1;
+  --c: linear-gradient(var(--fav-color) 0 0);
+  --r1: radial-gradient(farthest-side at bottom, var(--fav-color) 93%,var(--fav-color));
+  --r2: radial-gradient(farthest-side at top   , var(--fav-color) 93%,var(--fav-color));
+  background: 
+    var(--c) ,var(--r1),var(--r2),
+    var(--c) ,var(--r1),var(--r2),
+    var(--c) ,var(--r1),var(--r2);
+  background-repeat: no-repeat;
+  animation: l2 1s infinite alternate;
+}
+@keyframes l2 {
+  0%,25% {
+    background-size: 8px 0,8px 4px,8px 4px,8px 0,8px 4px,8px 4px,8px 0,8px 4px,8px 4px;
+    background-position: 0 50%,0 calc(50% - 2px),0 calc(50% + 2px),50% 50%,50% calc(50% - 2px),50% calc(50% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);
+ }
+ 50% {
+    background-size: 8px 100%,8px 4px,8px 4px,8px 0,8px 4px,8px 4px,8px 0,8px 4px,8px 4px;
+    background-position: 0 50%,0 calc(0% - 2px),0 calc(100% + 2px),50% 50%,50% calc(50% - 2px),50% calc(50% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);
+ }
+ 75% {
+    background-size: 8px 100%,8px 4px,8px 4px,8px 100%,8px 4px,8px 4px,8px 0,8px 4px,8px 4px;
+    background-position: 0 50%,0 calc(0% - 2px),0 calc(100% + 2px),50% 50%,50% calc(0% - 2px),50% calc(100% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);
+ }
+ 95%,100% {
+    background-size: 8px 100%,8px 4px, 8px 4px,8px 100%,8px 4px,8px 4px,8px 100%,8px 4px,8px 4px;
+    background-position: 0 50%,0 calc(0% - 2px),0 calc(100% + 2px),50% 50%,50% calc(0% - 2px),50% calc(100% + 2px),100% 50%,100% calc(0% - 2px),100% calc(100% + 2px);
+ }
 }
 
 @media (max-width: 950px) {

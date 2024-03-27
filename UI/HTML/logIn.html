@@ -19,6 +19,9 @@
   </head>
   <body>
     <div class="back-blur">
+      <div id="loader-container">
+        <div class="loader"></div>
+      </div>
       <div class="signIn-section">
         <div class="sign-form-container">
           <div class="signIn-head">
@@ -34,6 +37,7 @@
             <p>
               <input
                 type="email"
+                name="email"
                 id="LogInEmail"
                 class="signIn-input"
                 placeholder="Email"
@@ -42,6 +46,7 @@
             <p>
               <input
                 type="password"
+                name="password"
                 id="LogInPassword"
                 class="signIn-input"
                 placeholder="Password"
@@ -62,13 +67,6 @@
           <p>
             Don't have an account?
             <a href="../HTML/signIn.html" class="link">SignIn</a>
-            <a
-              href="../HTML/adminPanel.html"
-              class="link"
-              target="_blank"
-              rel="noopener noreferrer"
-              >/Temporary admin link</a
-            >
           </p>
         </div>
       </div>

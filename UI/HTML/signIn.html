@@ -9,33 +9,54 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="../Assets/favIcon.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="../Assets/favIcon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="../stylesheets/signIn.css" />
+
     <title>SIGN IN</title>
   </head>
   <body>
     <div class="back-blur">
+      <div id="loader-container">
+        <div class="loader"></div>
+      </div>
       <div class="signIn-section">
         <div class="sign-form-container">
           <div class="signIn-head">
             <h1>Sign in</h1>
             <div class="view-all-article-container">
-          <a href="../index.html" class="button-hover"
-            ><span>Back &nbsp; &#10095;</span></a
-          >
-        </div>
+              <a href="../index.html" class="button-hover"
+                ><span>Back &nbsp; &#10095;</span></a
+              >
+            </div>
           </div>
           <div class="validation-container" id="validationContainer"></div>
           <form id="mySignInForm">
             <p>
-              <input type="text" id="signInName" class="signIn-input" placeholder="Name" />
+              <input
+                type="text"
+                name="name"
+                id="signInName"
+                class="signIn-input"
+                placeholder="Name"
+              />
             </p>
             <p>
-              <input type="email" id="signInEmail" class="signIn-input" placeholder="Email" />
+              <input
+                type="email"
+                name="email"
+                id="signInEmail"
+                class="signIn-input"
+                placeholder="Email"
+              />
             </p>
             <p>
               <input
                 type="password"
+                name="password"
                 id="SignInPassword"
                 class="signIn-input"
                 placeholder="Password"
@@ -44,6 +65,7 @@
             <p>
               <input
                 type="password"
+                name="ConfirmPassword"
                 id="signInConfirmPassword"
                 class="signIn-input"
                 placeholder="Confirm Password"
@@ -55,10 +77,12 @@
             <img src="../Assets/icons8-google-48 (2).png" alt="" />
             Continue with Google
           </button>
-          <p>Have an account? <a href="../HTML/logIn.html" class="link">LogIn</a></p>
+          <p>
+            Have an account? <a href="../HTML/logIn.html" class="link">LogIn</a>
+          </p>
         </div>
       </div>
-      <script src="../Scripts/signIn.js"></script>
-        </body>
     </div>
+    <script src="../Scripts/signIn.js"></script>
+  </body>
 </html>
